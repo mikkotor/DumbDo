@@ -54,6 +54,31 @@ header {
     gap: 1rem;
 }
 
+.header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+#header-title {
+    grid-column: 2;
+    justify-self: center;
+    margin: 0;
+}
+
+#themeToggle {
+    grid-column: 3;
+    justify-self: end;
+    margin-left: auto;
+    position: static;
+}
+
 h1 {
     margin: 0;
     font-size: 2rem;
@@ -75,9 +100,6 @@ button:hover {
 }
 
 #themeToggle {
-    position: absolute;
-    top: 0;
-    right: 0;
     background: transparent;
     font-size: 1.5rem;
     padding: 0.5rem;
@@ -106,6 +128,7 @@ button:hover {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    justify-content: center;
 }
 
 .clear-btn {
@@ -137,14 +160,16 @@ button:hover {
 }
 
 input {
-    flex: 1;
-    max-width: 400px;
     padding: 0.75rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     background: var(--container);
     color: var(--text);
     transition: border-color var(--transition);
+}
+
+#todoInput {
+    width: 275px;
 }
 
 input:focus {
@@ -365,10 +390,6 @@ input:focus {
         width: 100%;
         max-width: 400px;
     }
-
-    .button-group button[type="submit"] {
-        flex: 1;
-    }
 }
 
 /* PIN Modal Styles */
@@ -469,7 +490,7 @@ input:focus {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
     padding: 0 1rem;
 }
@@ -633,17 +654,11 @@ input:focus {
     .list-controls {
         position: static;
         margin-bottom: 1rem;
-        justify-content: center;
     }
 
     header {
         flex-direction: column;
         gap: 1rem;
-    }
-
-    #themeToggle {
-        position: static;
-        margin-left: auto;
     }
 }
 
