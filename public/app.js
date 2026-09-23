@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderTodos() {
         todoList.innerHTML = '';
-        const currentTodos = todos[currentList] || [];
+        const currentTodos = [...(todos[currentList] || [])];
         if (sortTasksCheckbox.checked) {
             currentTodos.sort((a, b) => a.text.localeCompare(b.text));
         }
@@ -551,13 +551,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sort/unsort tasks alphabetically
     sortTasksCheckbox.addEventListener('change', () => {
         if (sortTasksCheckbox.checked) {
-            // Sort alphabetically
             localStorage.setItem('sort', 'true');
             toastManager.show('Tasks sorted alphabetically');
         } else {
-            // Unsort: reload from server to get original order
             localStorage.setItem('sort', 'false');
-            loadTodos();
             toastManager.show('Tasks order restored');
         }
         renderTodos();
